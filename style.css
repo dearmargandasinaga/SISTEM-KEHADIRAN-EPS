@@ -1,0 +1,343 @@
+/* Tampilan umum untuk seluruh halaman */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #2b2b2b;
+    color: #d3d3d3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Container utama untuk setiap halaman */
+.container {
+    width: 90%;
+    max-width: 500px;
+    background-color: #3e3e3e;
+    padding: 20px;
+    border: 1px solid #707070;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    max-height: 80vh;
+    overflow-y: auto;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Judul utama untuk setiap halaman */
+h1 {
+    color: #ffd700;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 24px;
+}
+
+/* Tampilan label untuk form */
+.container label {
+    display: block;
+    font-weight: bold;
+    margin: 10px 0 5px;
+    color: #d3d3d3;
+    text-align: left;
+}
+
+/* Tampilan input teks pada form */
+.container input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 5px;
+    border: 1px solid #707070;
+    box-sizing: border-box;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Placeholder dengan warna abu-abu muda */
+.container input[type="text"]::placeholder {
+    color: #a9a9a9;
+    font-style: italic;
+}
+
+/* Tombol umum untuk login, submit, dan navigasi */
+.container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #ffd700;
+    color: #2b2b2b;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.container button:hover {
+    background-color: #f0c30f;
+}
+
+/* Tampilan tabel untuk histori dan grafik absensi */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #707070;
+    color: #d3d3d3;
+}
+
+table th {
+    background-color: #505050;
+    font-weight: bold;
+}
+
+table tr:nth-child(even) {
+    background-color: #404040;
+}
+
+/* Tampilan textarea untuk catatan */
+.container textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 5px;
+    border: 1px solid #707070;
+    box-sizing: border-box;
+    font-size: 16px;
+    color: #333;
+    resize: vertical;
+}
+
+/* Tampilan video untuk scanner barcode */
+#camera {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin-top: 15px;
+    display: none;
+}
+
+/* Animasi loading overlay untuk setiap halaman */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.loading-spinner {
+    width: 60px;
+    height: 60px;
+    border: 5px solid rgba(255, 215, 0, 0.3);
+    border-radius: 50%;
+    border-top-color: #ffd700;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+.loading-text {
+    color: #ffd700;
+    font-size: 18px;
+    font-weight: bold;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+
+/* Link navigasi (back, logout, dll) */
+.nav-link {
+    color: #ffd700;
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.nav-link:hover {
+    color: #f0c30f;
+    text-decoration: none;
+}
+
+/* Style untuk custom alert */
+.custom-alert-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.custom-alert-box {
+    background-color: #2b2b2b;
+    border: 2px solid #ffd700;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 400px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    overflow: hidden;
+}
+
+.custom-alert-header {
+    background-color: #ffd700;
+    color: #2b2b2b;
+    padding: 10px 15px;
+    font-weight: bold;
+    border-bottom: 1px solid #cca700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.custom-alert-header .icon {
+    font-size: 1.2em;
+    margin-right: 5px;
+}
+
+.custom-alert-content {
+    padding: 20px;
+    color: #d3d3d3;
+    text-align: center;
+}
+
+.custom-alert-footer {
+    padding: 10px 15px;
+    text-align: center;
+    border-top: 1px solid #444;
+}
+
+.custom-alert-button {
+    background-color: #ffd700;
+    color: #2b2b2b;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    min-width: 80px;
+}
+
+.custom-alert-button:hover {
+    background-color: #f0c30f;
+}
+
+.custom-alert-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+    color: #d3d3d3;
+}
+
+.custom-alert-table td {
+    padding: 8px;
+    border-bottom: 1px solid #444;
+}
+
+.custom-alert-table td:first-child {
+    font-weight: bold;
+    width: 40%;
+}
+
+/* Style untuk Event dan Update */
+.update-card {
+    background-color: #2b2b2b;
+    border: 1px solid #444;
+    border-radius: 8px;
+    margin: 20px 0;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.update-badge {
+    position: absolute;
+    top: 10px;
+    right: -30px;
+    background-color: #ffd700;
+    color: #2b2b2b;
+    padding: 5px 30px;
+    transform: rotate(45deg);
+    font-weight: bold;
+    font-size: 14px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.update-content {
+    margin-top: 15px;
+}
+
+.update-date {
+    color: #aaa;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.event-item, .tip-item {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #444;
+}
+
+.event-item:last-child, .tip-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.tips-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+@media (min-width: 768px) {
+    .tips-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

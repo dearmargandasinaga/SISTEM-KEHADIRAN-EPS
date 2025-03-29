@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lobby Absensi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="loading" class="loading-overlay">Loading...</div>
+    <div class="container" id="content">
+        <h1>Lobby Absensi Karyawan</h1>
+        <p>Selamat Datang, <span id="employeeName">Karyawan</span>!</p>
+        <button onclick="navigateTo('absensi.html')">Form Absensi</button>
+        <button onclick="navigateTo('histori.html')">Histori Absensi</button>
+        <button onclick="navigateTo('grafik.html')">Grafik Absensi</button>
+        <button onclick="navigateTo('resi.html')">Download Resi Absensi</button>
+        <button onclick="navigateTo('scan.html')">Scan Barcode Resi</button>
+        <button onclick="navigateTo('cari_resi.html')">Cari Resi Berdasarkan Kode QR</button>
+        <button onclick="navigateTo('FAQ.html')">Informasi & Berita Update</button>
+        <button onclick="logout()">Logout</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

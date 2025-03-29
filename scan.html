@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan Barcode Resi</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <style>
+        #camera {
+            display: block;
+            margin: 0 auto;
+        }
+        #scanResult {
+            transition: background-color 0.3s ease;
+        }
+        .detected {
+            background-color: #d4edda;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="content">
+        <h1>Scan Barcode Resi</h1>
+        <video id="camera" width="300" height="200"></video>
+        <button onclick="startScanner()">Mulai Scan</button>
+        <p id="scanResult">Hasil scan akan muncul di sini</p>
+        <button onclick="navigateTo('lobby.html')">Kembali ke Lobby</button>
+        <footer>&copy; TIM IT EPS 2024</footer>
+    </div>
+    <script>
+        function startScanner() {
+            Quagga.init({
+                inputStream: {
+                    name: "Live",
+                    type: "LiveStream",
+                    target: document.querySelector('#camera')
+                },
+                decoder: {
+                    readers: ["code_128_reader", "ean_reader", "ean_8_reader", "code_39_reader", "code_39_vin_reader", "codabar_reader", "upc_reader", "upc_e_reader", "i2of5_reader", "2of5_reader", "code_93_reader"]
+                }
+            }, function(err) {
+                if (err) {
+                    console.log(err);
+                    return;
+                }
+                Quagga.start();
+            });
+
+            Quagga.onDetected(function(data) {
+                const code = data.codeResult.code;
+                const scanResultElement = document.getElementById('scanResult');
+                scanResultElement.innerText = `Kode terdeteksi: ${code}`;
+                scanResultElement.classList.add('detected');
+                setTimeout(() => {
+                    scanResultElement.classList.remove('detected');
+                    Quagga.stop();
+                    window.location.href = `cari_resi.html?code=${encodeURIComponent(code)}`;
+                }, 1000);
+            });
+        }
+
+        // Mencegah view source dan inspect element
+        document.addEventListener('contextmenu', event => event.preventDefault());
+        document.onkeydown = function(e) {
+            if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) || (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) || (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0))) {
+                return false;
+            }
+        };
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

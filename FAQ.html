@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event & Update Aplikasi</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Mengatur font untuk seluruh halaman */
+        }
+        .faq-item {
+            margin-bottom: 15px; /* Tambahkan jarak antar item FAQ */
+            border: 1px solid #ccc; /* Tambahkan border untuk pemisahan */
+            border-radius: 5px; /* Tambahkan sudut melengkung */
+            padding: 10px; /* Tambahkan padding untuk ruang dalam */
+            background-color: #f9f9f9; /* Tambahkan latar belakang */
+        }
+        .faq-item h3 {
+            cursor: pointer; /* Ubah kursor saat hover */
+            color: #007BFF; /* Ubah warna teks judul */
+        }
+        .faq-item p {
+            display: none; /* Sembunyikan jawaban secara default */
+            transition: max-height 0.3s ease-out; /* Tambahkan transisi */
+            overflow: hidden; /* Sembunyikan konten yang melampaui batas */
+            max-height: 0; /* Set max-height awal */
+            margin-top: 10px; /* Tambahkan jarak atas untuk jawaban */
+            color: #D2B48C; /* Ubah warna teks jawaban menjadi abu kulit */
+        }
+        .faq-item.active p {
+            display: block; /* Tampilkan jawaban */
+            max-height: 100px; /* Set max-height saat aktif */
+        }
+        .header-container {
+            border: 2px solid #FF4500; /* Kotak pembatas dengan warna oranye */
+            border-radius: 5px; /* Sudut melengkung */
+            padding: 10px; /* Ruang dalam */
+            margin-bottom: 20px; /* Jarak bawah */
+            background-color: #FFF5EE; /* Latar belakang kotak dengan warna terang */
+            text-align: center; /* Pusatkan teks */
+        }
+        .marquee {
+            overflow: hidden; /* Sembunyikan bagian yang melampaui */
+            white-space: nowrap; /* Mencegah teks terputus */
+            box-sizing: border-box; /* Mengatur ukuran kotak */
+        }
+        .marquee p {
+            display: inline-block; /* Tampilkan teks dalam satu baris */
+            animation: marquee 10s linear infinite; /* Animasi berjalan */
+            margin: 0; /* Hapus margin */
+            color: #FF4500; /* Warna teks merah/oranye */
+            font-weight: bold; /* Tebalkan teks */
+        }
+        @keyframes marquee {
+            0% { transform: translateX(100%); } /* Mulai dari kanan */
+            100% { transform: translateX(-100%); } /* Berakhir di kiri */
+        }
+    </style>
+</head>
+<body>
+    <div id="loading" class="loading-overlay">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Sedang Memuat...</div>
+    </div>
+    
+    <div class="container" id="content">
+        <h1>Event & Update Aplikasi</h1>
+        
+        <div class="update-card">
+            <div class="update-badge">Terbaru!</div>
+            <h2>Update Aplikasi v2.0 - 23 Juli 2025</h2>
+            <div class="update-content">
+                <p class="update-date">Dirilis: 23 Juli 2025</p>
+                <h3>Fitur Baru:</h3>
+                <ul>
+                    <li>Custom alert untuk pesan sistem</li>
+                    <li>Tampilan loading yang diperbarui</li>
+                    <li>Halaman Event & Update yang baru</li>
+                    <li>Peningkatan keamanan data resi</li>
+                </ul>
+                
+                <h3>Perbaikan Bug:</h3>
+                <ul>
+                    <li>Perbaikan masalah loading pada perangkat tertentu</li>
+                    <li>Peningkatan kecepatan pemrosesan resi absensi</li>
+                    <li>Perbaikan tampilan pada layar kecil</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="update-card">
+            <h2>Event Mendatang</h2>
+            <div class="update-content">
+                <div class="event-item">
+                    <h3>Pelatihan Penggunaan Aplikasi</h3>
+                    <p>Tanggal: 30 Juli 2025</p>
+                    <p>Tempat: Ruang Meeting Lt.2</p>
+                    <p>Peserta: Semua karyawan</p>
+                </div>
+                
+                <div class="event-item">
+                    <h3>Maintenance Sistem</h3>
+                    <p>Tanggal: 5 Agustus 2025</p>
+                    <p>Waktu: 22:00 - 23:00 WIB</p>
+                    <p>Catatan: Sistem tidak dapat diakses selama periode maintenance</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="update-card">
+            <h2>Tips Penggunaan Aplikasi</h2>
+            <div class="update-content">
+                <div class="tips-container">
+                    <div class="tip-item">
+                        <h3>1. Gunakan Browser Terbaru</h3>
+                        <p>Aplikasi berjalan optimal di Chrome, Firefox, atau Safari versi terbaru.</p>
+                    </div>
+                    
+                    <div class="tip-item">
+                        <h3>2. Izinkan Akses Lokasi</h3>
+                        <p>Untuk fitur absensi yang akurat, pastikan browser diizinkan mengakses lokasi Anda.</p>
+                    </div>
+                    
+                    <div class="tip-item">
+                        <h3>3. Simpan Resi dengan Baik</h3>
+                        <p>Download dan simpan resi absensi sebagai bukti kehadiran Anda.</p>
+                    </div>
+                    
+                    <div class="tip-item">
+                        <h3>4. Jaringan Internet Stabil</h3>
+                        <p>Pastikan Anda terhubung ke jaringan internet yang stabil saat menggunakan aplikasi.</p>
+                    </div>
+                    
+                    <div class="tip-item">
+                        <h3>5. Logout Setelah Selesai</h3>
+                        <p>Selalu logout dari aplikasi jika menggunakan perangkat bersama untuk keamanan data.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <button onclick="navigateTo('lobby.html')">Kembali ke Lobby</button>
+        <footer>&copy; TIM IT EPS 2024</footer>
+    </div>
+    <script src="script.js"></script>
+    <script src="qrcode.min.js"></script>
+    <script>
+        var qrcode = new QRCode(document.getElementById("qrcode"), {
+            text: "https://link-anda.com",
+            width: 128,
+            height: 128
+        });
+        function toggleFaq(element) {
+            var answer = element.nextElementSibling;
+            var faqItem = element.parentElement;
+
+            if (faqItem.classList.contains("active")) {
+                faqItem.classList.remove("active");
+            } else {
+                faqItem.classList.add("active");
+                // Scroll ke bawah saat jawaban ditampilkan
+                faqItem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+    </script>
+</body>
+</html>

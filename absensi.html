@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Absensi Karyawan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container" id="content">
+        <h1>Form Absensi Karyawan</h1>
+        <form id="absensiForm">
+            <label for="employeeId">ID Karyawan:</label>
+            <input type="text" id="employeeId" placeholder="Masukkan ID Karyawan" required oninput="autoFillName()">
+            
+            <label>Nama Karyawan:</label>
+            <input type="text" id="employeeName" placeholder="Nama Karyawan" required oninput="autoFillName()">
+
+            <label>Tanggal:</label>
+            <p id="date">Mengambil tanggal...</p>
+
+            <label>Waktu Server:</label>
+            <p id="timeServer">Mengambil waktu server...</p>
+
+            <label for="manualLocation">Lokasi (Manual):</label>
+            <input type="text" id="manualLocation" placeholder="Masukkan lokasi Anda" required>
+
+            <label for="note">Catatan:</label>
+            <select id="note" size="5" style="width: 100%;">
+                <option value="Semoga harimu menyenangkan.">Semoga harimu menyenangkan.</option>
+                <option value="Tetap semangat dan produktif.">Tetap semangat dan produktif.</option>
+                <option value="Jangan lupa istirahat.">Jangan lupa istirahat.</option>
+                <option value="Kerja keras, hasil maksimal.">Kerja keras, hasil maksimal.</option>
+                <option value="Selalu berpikir positif.">Selalu berpikir positif.</option>
+                <option value="Jaga kesehatan dan kebugaran.">Jaga kesehatan dan kebugaran.</option>
+                <option value="Bersyukur atas hari ini.">Bersyukur atas hari ini.</option>
+                <option value="Fokus pada tujuan.">Fokus pada tujuan.</option>
+                <option value="Jangan menyerah.">Jangan menyerah.</option>
+                <option value="Hari ini adalah kesempatan baru.">Hari ini adalah kesempatan baru.</option>
+                <option value="Tidak ada.">Tidak ada.</option>
+            </select>
+
+            <label>Jenis Absensi:</label>
+            <select id="attendanceType">
+                <option value="Hadir">Hadir</option>
+                <option value="Berhalangan">Berhalangan</option>
+                <option value="Izin">Izin</option>
+                <option value="Alasan lainya...">Alasan lainya...</option>
+            </select>
+
+            <label for="resiType">Tipe Kode Resi:</label>
+            <select id="resiType">
+                <option value="detailed">Kode dengan ID Karyawan dan Tanggal</option>
+                <option value="simple">Kode Resi Saja</option>
+            </select>
+
+            <button type="button" onclick="submitAbsensi()">Input Resi Absensi</button>
+        </form>
+        <button onclick="navigateTo('lobby.html')">Kembali ke Lobby</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cari Resi Berdasarkan Kode QR</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+    <div id="loading" class="loading-overlay">Loading...</div>
+    <div class="container" id="content">
+        <h1>Cari Resi Berdasarkan Kode QR</h1>
+        <input type="text" id="qrCodeInput" placeholder="Masukkan Kode Resi">
+        <button onclick="cariResi()">Cari Resi</button>
+        <div id="resiResult">Hasil pencarian akan muncul di sini</div>
+        <button onclick="navigateTo('lobby.html')">Kembali ke Lobby</button>
+        <footer>&copy; TIM IT EPS 2024</footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

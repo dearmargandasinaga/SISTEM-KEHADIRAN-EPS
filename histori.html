@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histori Absensi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="loading" class="loading-overlay">Loading...</div>
+    <div class="container" id="content">
+        <h1>Histori Absensi</h1>
+        <input type="text" id="searchResiInput" placeholder="Cari Kode Resi">
+        <button onclick="searchResi()">Cari Resi</button>
+        <div id="searchResult" class="resi-format">Hasil pencarian akan muncul di sini</div>
+        <table id="historiTable">
+            <thead>
+                <tr>
+                    <th>ID Karyawan</th>
+                    <th>Nama</th>
+                    <th>Tanggal</th>
+                    <th>Jenis Absensi</th>
+                </tr>
+            </thead>
+            <tbody id="historiBody">
+                <!-- Data absensi akan diisi melalui JavaScript -->
+            </tbody>
+        </table>
+        <button onclick="navigateTo('lobby.html')">Kembali ke Lobby</button>
+    </div>
+    <div id="manualLocationContainer" style="display: none;">
+        <label for="manualLocation">Masukkan Lokasi Anda:</label>
+        <input type="text" id="manualLocation" placeholder="Contoh: Jakarta, Indonesia">
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
